@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Spluss Invest – Bonitätscheck</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-900 font-serif">
+
+  <main class="max-w-md mx-auto my-12 p-6 bg-white rounded-2xl shadow">
+    <h1 class="text-2xl font-bold text-blue-900 mb-6">Schritt 1 von 3: Bonitätscheck</h1>
+    
+    <form id="funnel-form" class="space-y-6">
+      <!-- Step 1 -->
+      <fieldset data-step="1" class="step">
+        <label class="block">
+          <span>Einkommen (Netto/Monat)</span>
+          <input type="number" name="income" required
+                 class="mt-1 block w-full border-gray-300 rounded"/>
+        </label>
+        <label class="block">
+          <span>Berufsstatus</span>
+          <select name="profession" required
+                  class="mt-1 block w-full border-gray-300 rounded">
+            <option value="">Bitte wählen</option>
+            <option>Angestellt</option>
+            <option>Selbstständig</option>
+            <option>Beamter</option>
+          </select>
+        </label>
+        <label class="block">
+          <span>Wohnort (Stadt)</span>
+          <input type="text" name="city" required
+                 class="mt-1 block w-full border-gray-300 rounded"/>
+        </label>
+      </fieldset>
+
+      <!-- Step 2 -->
+      <fieldset data-step="2" class="step hidden">
+        <h2 class="text-xl font-semibold text-blue-900 mb-4">Schritt 2 von 3: Schufa & Selbstständigkeit</h2>
+        <label class="block">
+          <span>Hast du Schufa-Einträge?</span>
+          <div class="mt-1 space-x-4">
+            <label><input type="radio" name="schufa" value="no" required/> Nein</label>
+            <label><input type="radio" name="schufa" value="yes"/> Ja</label>
+          </div>
+        </label>
+        <label class="block mt-4">
+          <span>Bist du selbstständig < 1 Jahr?</span>
+          <div class="mt-1 space-x-4">
+            <label><input type="radio" name="selfemployed" value="no" required/> Nein</label>
+            <label><input type="radio" name="selfemployed" value="yes"/> Ja</label>
+          </div>
+        </label>
+      </fieldset>
+
+      <!-- Step 3 -->
+      <fieldset data-step="3" class="step hidden">
+        <h2 class="text-xl font-semibold text-blue-900 mb-4">Schritt 3 von 3: Terminvereinbarung</h2>
+        <label class="block">
+          <span>Wähle ein Datum</span>
+          <input type="date" name="date" required
+                 class="mt-1 block w-full border-gray-300 rounded"/>
+        </label>
+        <label class="block">
+          <span>Wähle eine Uhrzeit</span>
+          <input type="time" name="time" required
+                 class="mt-1 block w-full border-gray-300 rounded"/>
+        </label>
+      </fieldset>
+
+      <!-- Navigation Buttons -->
+      <div class="flex justify-between">
+        <button type="button" id="prev" class="px-4 py-2 bg-gray-200 rounded">Zurück</button>
+        <button type="button" id="next" class="px-4 py-2 bg-blue-900 text-white rounded">Weiter</button>
+        <button type="submit" id="submit" class="px-4 py-2 bg-green-600 text-white rounded hidden">Absenden</button>
+      </div>
+    </form>
+  </main>
+
+  <script>
+    const steps = document.querySelectorAll('.step');
+    let current = 0;
+    const prevBtn = document.getElementById('prev');
+    const nextBtn = document.getElementById('next');
+    const submitBtn = document.getElementById('submit');
+
+    function showStep(i) {
+      steps.forEach((f, idx) => f.classList.toggle('hidden', idx !== i));
+      prevBtn.style.display = i ? 'inline-block' : 'none';
+      nextBtn.style.display = i < steps.length - 1 ? 'inline-block' : 'none';
+      submitBtn.style.display = i === steps.length - 1 ? 'inline-block' : 'none';
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (!steps[current].querySelector('input:required:invalid, select:required:invalid')) {
+        current++;
+        showStep(current);
+      } else alert('Bitte alle Felder ausfüllen.');
+    });
+    prevBtn.addEventListener('click', () => {
+      current = Math.max(current - 1, 0);
+      showStep(current);
+    });
+    document.getElementById('funnel-form').addEventListener('submit', e => {
+      e.preventDefault();
+      // Hier kannst du per fetch()/XHR die Daten an dein CRM schicken
+      alert('Dein Terminwunsch wurde gesendet! Marie meldet sich bei dir.');
+    });
+
+    // Initial
+    showStep(0);
+  </script>
+</body>
+</html>
