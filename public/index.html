@@ -8,56 +8,60 @@
 </head>
 <body class="bg-white text-gray-900 font-serif min-h-screen">
 
+  <!-- Header -->
   <header class="bg-white shadow-md py-6 px-4 md:px-12 flex justify-between items-center">
     <h1 class="text-2xl md:text-3xl font-bold text-blue-900">Spluss Invest</h1>
-    <button class="cta-button bg-blue-900 text-white px-4 py-2 rounded-2xl shadow">Jetzt starten</button>
+    <a href="/funnel.html"
+       class="bg-blue-900 text-white px-4 py-2 rounded-2xl shadow inline-block">
+      Jetzt starten
+    </a>
   </header>
 
+  <!-- Hero-Section -->
   <section class="bg-gradient-to-br from-blue-900 to-blue-600 text-white py-20 px-4 md:px-12 text-center">
     <h2 class="text-4xl md:text-5xl font-bold mb-4">Immobilien als Kapitalanlage</h2>
     <p class="text-xl mb-6">Schon ab 2.400 € netto – ohne Eigenkapital investieren</p>
-    <button class="cta-button bg-white text-blue-900 px-6 py-3 rounded-2xl text-lg shadow-md font-semibold">
+    <a href="/funnel.html"
+       class="bg-white text-blue-900 px-6 py-3 rounded-2xl text-lg shadow-md font-semibold inline-block">
       Bin ich bereit Vermieter zu werden?
-    </button>
+    </a>
   </section>
 
-  <!-- Ziel-Abschnitt mit der ID für den Scroll-Zielpunkt -->
-  <section id="check-section" class="py-16 px-4 md:px-12 grid gap-10 md:grid-cols-3">
-    <div>
+  <!-- Drei-Schritte-Überblick -->
+  <section class="py-16 px-4 md:px-12 grid gap-10 md:grid-cols-3">
+    <div class="text-center">
       <h3 class="text-xl font-bold text-blue-900 mb-2">1. Bonitätscheck</h3>
       <p>Beantworte 3 Fragen zu Einkommen, Beruf und Wohnort.</p>
+      <a href="/funnel.html" class="mt-4 inline-block text-blue-900 underline">Weiter</a>
     </div>
-    <div>
+    <div class="text-center">
       <h3 class="text-xl font-bold text-blue-900 mb-2">2. Analyse & Gespräch</h3>
       <p>Unsere KI prüft deine Angaben und vereinbart ein Erstgespräch.</p>
+      <a href="/funnel.html" class="mt-4 inline-block text-blue-900 underline">Weiter</a>
     </div>
-    <div>
+    <div class="text-center">
       <h3 class="text-xl font-bold text-blue-900 mb-2">3. Eigentümer werden</h3>
       <p>Du investierst steueroptimiert in eine vermietete Wohnung.</p>
+      <a href="/funnel.html" class="mt-4 inline-block text-blue-900 underline">Weiter</a>
     </div>
   </section>
 
+  <!-- Footer-CTA -->
   <section class="bg-gray-50 py-16 px-4 md:px-12 text-center">
     <h3 class="text-2xl font-bold text-blue-900 mb-4">Jetzt unverbindlich starten</h3>
-    <p class="mb-6">In weniger als 60 Sekunden prüfen, ob du geeignet bist.</p>
-    <button class="cta-button bg-blue-900 text-white px-6 py-3 rounded-2xl text-lg shadow-md">
+    <p class="mb-6">Wir führen dich in wenigen Schritten durch den gesamten Prozess.</p>
+    <a href="/funnel.html"
+       class="bg-blue-900 text-white px-6 py-3 rounded-2xl text-lg shadow-md inline-block">
       Bin ich bereit Vermieter zu werden?
-    </button>
+    </a>
   </section>
 
+  <!-- Footer -->
   <footer class="bg-white py-8 px-4 md:px-12 text-sm text-center text-gray-500">
-    © 2025 Spluss Invest – Alle Rechte vorbehalten | Datenschutz | Impressum
+    © 2025 Spluss Invest – Alle Rechte vorbehalten | <a href="/impressum.html" class="underline">Impressum</a> | <a href="/datenschutz.html" class="underline">Datenschutz</a>
   </footer>
 
-  <!-- Scroll-Script -->
-  <script>
-    document.querySelectorAll('.cta-button').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.getElementById('check-section')
-                .scrollIntoView({ behavior: 'smooth' });
-      });
-    });
-  </script>
 </body>
 </html>
+
 
